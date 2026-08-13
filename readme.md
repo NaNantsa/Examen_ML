@@ -104,7 +104,7 @@ Voici la liste des fichiers et liens importants permettant d’évaluer notre tr
 
 **🔗 Liens utiles :**
 
-- [**LIEN VERS LA VIDÉO DE PRÉSENTATION** — YouTube](https://www.youtube.com/)
+- [**LIEN VERS LA VIDÉO DE PRÉSENTATION**](https://drive.google.com/file/d/1pDp6SkaE3fSAaRObDUM4EwA-ltM18Kg7/view?usp=drivesdk)
 - [Lien vers le dépôt GitHub](https://github.com/NaNantsa/Examen_ML)
 
 ---
