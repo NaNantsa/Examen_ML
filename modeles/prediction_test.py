@@ -1,6 +1,6 @@
 import pandas as pd
 import joblib
-
+from pathlib import Path
 
 # ============================================================
 # CHARGEMENT DU MODELE
@@ -21,8 +21,9 @@ print(f"Seuil optimal : {seuil:.3f}")
 # CHARGEMENT DU TEST
 # ============================================================
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 df_test = pd.read_csv(
-    "../ressources/reservations_test.csv"
+    BASE_DIR / "ressources" / "reservations_train.csv"
 )
 
 print("\nNombre de réservations test :", len(df_test))

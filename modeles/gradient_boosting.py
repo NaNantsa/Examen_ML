@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
@@ -18,9 +19,9 @@ from sklearn.metrics import (
 # ============================================================
 # CHARGEMENT
 # ============================================================
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-df = pd.read_csv("ressources/reservations_train.csv")
-
+df = pd.read_csv(BASE_DIR / "ressources" / "reservations_train.csv")
 df["date_reservation"] = pd.to_datetime(
     df["date_reservation"]
 )
@@ -113,9 +114,9 @@ categoriels = [
 
 ordre = (
     pd.to_datetime(
-        pd.read_csv(
-            "ressources/reservations_train.csv"
-        )["date_reservation"]
+    pd.read_csv(
+    BASE_DIR / "ressources" / "reservations_train.csv"
+    )["date_reservation"]
     )
     .sort_values()
     .index

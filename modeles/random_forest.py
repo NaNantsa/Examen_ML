@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import joblib
-
+from pathlib import Path
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
@@ -21,7 +21,13 @@ from sklearn.metrics import (
 # CHARGEMENT
 # ============================================================
 
-df = pd.read_csv("ressources/reservations_train.csv")
+# Dossier machine_learning/
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+df = pd.read_csv(
+    BASE_DIR / "ressources" / "reservations_train.csv"
+)
+# df = pd.read_csv("ressources/reservations_train.csv")
 
 df["date_reservation"] = pd.to_datetime(df["date_reservation"])
 df["date_arrivee"] = pd.to_datetime(df["date_arrivee"])
@@ -104,7 +110,7 @@ categoriels = [
 # ============================================================
 
 ordre = pd.to_datetime(
-    pd.read_csv("ressources/reservations_train.csv")["date_reservation"]
+     pd.read_csv(BASE_DIR / "ressources" / "reservations_train.csv")["date_reservation"]
 ).sort_values().index
 
 X = X.loc[ordre]

@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-
+from pathlib import Path
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
@@ -20,8 +20,10 @@ from sklearn.metrics import (
 # CHARGEMENT
 # ============================================================
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 df = pd.read_csv(
-    "ressources/reservations_train.csv"
+    BASE_DIR / "ressources" / "reservations_train.csv"
 )
 
 df["date_reservation"] = pd.to_datetime(

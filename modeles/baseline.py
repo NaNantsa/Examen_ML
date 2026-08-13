@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
@@ -21,9 +22,10 @@ from sklearn.metrics import (
 # ============================================================
 # CHARGEMENT
 # ============================================================
-
-df = pd.read_csv("/ressources/reservations_train.csv")
-
+BASE_DIR = Path(__file__).resolve().parent.parent
+df = pd.read_csv(
+    BASE_DIR / "ressources" / "reservations_train.csv"
+)
 # Dans l'énoncé :
 # NaN dans agent_id = réservation directe
 df["agent_id"] = df["agent_id"].fillna("DIRECT")
